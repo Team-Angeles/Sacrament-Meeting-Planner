@@ -59,23 +59,15 @@
             <dd>
                 @Html.DisplayFor(model => model.ClosingPrayer)
             </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.MeetingSpeakers)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.MeetingSpeakers)
-            </dd>
+            <div>
+                <a class="a-btn" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+                <a class="a-btn" asp-action="Index">Back to List</a>
+            </div>
         </dl>
         <div class="speaker-section" id="speakerSection">
-            
-
-        </div>
         </div>
     </div>
 </div>
-<div>
-    <a class="a-btn" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
-    <a class="a-btn" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
@@ -98,11 +90,11 @@
 
             speakers.forEach(function (speaker, index) {
                 let speakerSection = `
-                            <p>Speaker ${index + 1}:</p>
-                            <p>Name: ${speaker.Name}</p>
-                            <p>Topic: ${speaker.Topic}</p>
-                            <hr />
-                        `;
+                                    <p>Speaker ${index + 1}:</p>
+                                    <p>Name: ${speaker.Name}</p>
+                                    <p>Topic: ${speaker.Topic}</p>
+                                    <hr />
+                                `;
 
                 speakerSectionDiv.innerHTML += speakerSection;
             });

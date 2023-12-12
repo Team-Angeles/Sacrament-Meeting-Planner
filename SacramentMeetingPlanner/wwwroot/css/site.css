@@ -41,9 +41,10 @@ body {
 }
 
 body {
-  background-image: url("/organ-blurr.jpeg");
+  background-image: url("/forest.jpg");
   background-size: cover;
   background-position: center top;
+  padding: 50px;
 }
 
 .a-btn {
@@ -83,4 +84,10 @@ h1, h2, th {
 
 h1 {
   text-align: center;
+}
+.hide{
+    display:none;
+}
+main{
+    min-height: 550px;
 }
