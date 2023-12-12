@@ -41,7 +41,7 @@ body {
 }
 
 body {
-  background-image: url("/organ-blurr.jpeg");
+/*  background-image: url("/organ-blurr.jpeg");*/
   background-size: cover;
   background-position: center top;
 }
