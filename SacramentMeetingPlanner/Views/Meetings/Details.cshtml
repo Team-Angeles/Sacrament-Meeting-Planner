@@ -1,0 +1,111 @@
+@model Sacrament_Meeting_Planner.Models.Meeting
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Meeting</h4>
+    <hr />
+    <div class="meeting-forms">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateOfMeeting)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateOfMeeting)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Leader)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Leader)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.OpeningHymn)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OpeningHymn)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SacramentHymn)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SacramentHymn)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ClosingHymn)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ClosingHymn)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IntermediateNumber)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IntermediateNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.OpeningPrayer)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OpeningPrayer)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ClosingPrayer)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ClosingPrayer)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MeetingSpeakers)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MeetingSpeakers)
+            </dd>
+        </dl>
+        <div class="speaker-section" id="speakerSection">
+            
+
+        </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a class="a-btn" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
+    <a class="a-btn" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("sup");
+            let jsonString = '@Html.Raw(Model.MeetingSpeakers)';
+            let speakers = JSON.parse(jsonString);
+            console.log(speakers);
+
+            displaySpeakers(speakers);
+        });
+
+        function displaySpeakers(speakers) {
+            let speakerSectionDiv = document.getElementById("speakerSection");
+            console.log("Hi there");
+
+            speakerSectionDiv.innerHTML = `<h4>Speakers</h4>`;
+
+
+            speakers.forEach(function (speaker, index) {
+                let speakerSection = `
+                            <p>Speaker ${index + 1}:</p>
+                            <p>Name: ${speaker.Name}</p>
+                            <p>Topic: ${speaker.Topic}</p>
+                            <hr />
+                        `;
+
+                speakerSectionDiv.innerHTML += speakerSection;
+            });
+        }
+    </script>
+}
