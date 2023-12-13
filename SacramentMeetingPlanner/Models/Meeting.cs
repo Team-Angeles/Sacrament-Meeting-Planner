@@ -31,7 +31,7 @@ namespace Sacrament_Meeting_Planner.Models
     [Display(Name = "Closing Hymn")]
     public string ClosingHymn { get; set; }
     [Display(Name = "Intermediate Hymn")]
-    public string IntermediateNumber { get; set; } = null;
+    public string? IntermediateNumber { get; set; }
 
     [Required]
     [Display(Name = "Opening Prayer")]
@@ -41,6 +41,6 @@ namespace Sacrament_Meeting_Planner.Models
     [Display(Name = "Closing Prayer")]
     public string ClosingPrayer { get; set; }
 
-    public String MeetingSpeakers { get; set; } = null;
+    public String? MeetingSpeakers { get; set; }
   }
 }

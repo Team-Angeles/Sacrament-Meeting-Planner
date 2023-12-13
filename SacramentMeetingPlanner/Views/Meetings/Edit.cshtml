@@ -86,10 +86,12 @@
             let topicCounter = 1;
 
             let jsonString = '@Html.Raw(Model.MeetingSpeakers)';
-            let speakers = JSON.parse(jsonString);
-            console.log(jsonString);
 
+            console.log(jsonString);
+            if (jsonString != null && jsonString.trim() !== '') {
+            let speakers = JSON.parse(jsonString);
             displaySpeakers(speakers);
+            }
 
             if (addSpeakerBtn) {
 
